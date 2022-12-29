@@ -1,19 +1,23 @@
-palavra_secreta = 'banana'.upper()
+import random
 
-acertos = 0
-erros = 0
+#criando váriavel de palavras
+palavras = ["cachorro", "banana", "melao"]
 
-letras_acertadas = ''
-letras_erradas = ''
+#selecionando as palavras aleatorias da minha lista
+palavras = random.choice(palavras)
 
-while acertos != len(palavra_secreta) and erros != 6:
-    print('')
+#numero de tentativas e chances
+tentativas = 0
+chanches = 6
 
+#variavel com as letras escolhidas, sem valor
+letras_escolhidas = []
 
-    letra = input('Digite a letra: ').upper()
-    if letra in palavra_secreta:
-        print('Você acertou a letra')
-        acertos += 1
-    else:
-        print('Errou')
-        erros += 1
+#essa variavel vai pegar o tamanho da palavra e multiplicar pelo  '_ '
+estado_atual = "_ " * len(palavras)
+
+#Boas vindas
+print('*' * 27)
+print('Bem vindo ao jogo da forca\nSe divirta e boa sorte!')
+print('*' * 27)
+
