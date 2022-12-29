@@ -68,6 +68,7 @@ while tentativas < chances and ''.join(estado_atual) != palavras: #.join vai faz
         #letras escolhidas
         print(letras_escolhidas)
 
+#
 if tentativas == chances:
     print(f'\n\nInfelizmente você perdeu! A palavra era {palavras}.')
 else:
