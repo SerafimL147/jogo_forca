@@ -22,9 +22,14 @@ print('Bem vindo ao jogo da forca\nSe divirta e boa sorte!')
 print('*' * 27)
 
 #Enquanto o número de tentativas for menor do que o de chances
-while tentativas < chances:
+while tentativas < chances and ''.join(estado_atual) != palavras:
 
-    letra = input('Digite uma letra: ')
+    letra = str(input('Digite uma letra: '))
+
+    while letra in letras_escolhidas:
+        print('Você já escolheu essa letra')
+        letra = str(input('Digite outra letra: '))
+
     letras_escolhidas.append(letra)
 
 
@@ -42,13 +47,14 @@ while tentativas < chances:
 
         #estado da palavra
         print(estado_atual)
+
     else:
         print('Que pena, você errou!')
         tentativas += 1 #Se errou o numero de tentativas vai diminuindo, até chegar 6
 
 
         #quantas tentativas
-        print(f'Você ainda tem {tentativas} tentativas')
+        print(f'Você ainda tem {tentativas}/6 tentativas')
 
 
         #estado da palavra
@@ -56,3 +62,13 @@ while tentativas < chances:
 
         #letras escolhidas
         print(letras_escolhidas)
+
+if tentativas == chances:
+    print(f'Infelizmente você perdeu! A palavra era {palavras}.')
+else:
+    print(f'Você ganhou, parabébs!')
+
+
+
+
+
