@@ -1,10 +1,12 @@
 import random
+import sys
 
 #criando váriavel de palavras
-palavras = ["cachorro", "banana", "melao"]
+palavras = ['cachorro', 'banana', 'melao', 'abacaxi', 'pipa', 'manga']
+
 
 #selecionando as palavras aleatorias da minha lista
-palavras = random.choice(palavras)
+palavras = random.choice(palavras).upper()
 
 #numero de tentativas e chances
 tentativas = 0
@@ -14,21 +16,24 @@ chances = 6
 letras_escolhidas = []
 
 #essa variavel vai pegar o tamanho da palavra e multiplicar pelo  '_ '
-estado_atual = ["_ "] * len(palavras)
+estado_atual = ["_"] * len(palavras)
+
 
 #Boas vindas
 print('*' * 27)
 print('Bem vindo ao jogo da forca\nSe divirta e boa sorte!')
 print('*' * 27)
 
-#Enquanto o número de tentativas for menor do que o de chances
-while tentativas < chances and ''.join(estado_atual) != palavras:
+#Enquanto o número de tentativas for menor do que o de chances e 'and' enquanto eu não acertar a palavra
+#se estourar o numero de tentativas o jogo acaba e se descobrir a palavra o jogo acaba
+print(f'Vamos começar, sua palavra tem {estado_atual}'  + str(len(estado_atual)), 'letras.')
+while tentativas < chances and ''.join(estado_atual) != palavras: #.join vai fazer com que uma lista de letras vire uma palavra
 
-    letra = str(input('Digite uma letra: '))
+    letra = input('\n\nDigite uma letra: ').upper()
 
     while letra in letras_escolhidas:
         print('Você já escolheu essa letra')
-        letra = str(input('Digite outra letra: '))
+        letra = str(input('Digite outra letra: ').upper())
 
     letras_escolhidas.append(letra)
 
@@ -54,7 +59,7 @@ while tentativas < chances and ''.join(estado_atual) != palavras:
 
 
         #quantas tentativas
-        print(f'Você ainda tem {tentativas}/6 tentativas')
+        print(f'\n\nVocê ainda tem {tentativas}/6 tentativas')
 
 
         #estado da palavra
@@ -64,9 +69,9 @@ while tentativas < chances and ''.join(estado_atual) != palavras:
         print(letras_escolhidas)
 
 if tentativas == chances:
-    print(f'Infelizmente você perdeu! A palavra era {palavras}.')
+    print(f'\n\nInfelizmente você perdeu! A palavra era {palavras}.')
 else:
-    print(f'Você ganhou, parabébs!')
+    print(f'Você acertou a palavra, parabéns! Sua palavra era {palavras}')
 
 
 
