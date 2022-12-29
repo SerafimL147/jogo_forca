@@ -1,5 +1,4 @@
 import random
-import sys
 
 #criando váriavel de palavras
 palavras = ['cachorro', 'banana', 'melao', 'abacaxi', 'pipa', 'manga']
@@ -73,8 +72,6 @@ if tentativas == chances:
     print(f'\n\nInfelizmente você perdeu! A palavra era {palavras}.')
 else:
     print(f'Você acertou a palavra, parabéns! Sua palavra era {palavras}')
-
-
 
 
 
